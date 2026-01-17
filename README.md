@@ -93,24 +93,28 @@ User Devices (Laptop, HP, dll)
            (SSID_Hotspot)       │                       │
                 │              100M                     │
                 │           [Wireless]                  │
-                ▼                                       │
-           [Tenda O3V2]                                 │
+                ▼               │                       │
+           [Tenda O3V2]◄────────┘                       │
            Mode: Client                                 │
                 │                                       │
                 │ eth2 (LAN Cable)                      │
-                ▼                                       │
+                ▼ DHCP:192.168.100.0/24                 │
           ----------------------                        │
           | [OpenWRT Router]    |◄─[Captive Portal]◄────┘
-          | LAN: 192.168.1.1/24 |      │       │         
-          ----------------------       │       │         
-                ▼          ↘           │       │         
-                │            ↘         ▼       │         
-                |───────→ [SCRIPT AUTO LOGIN]  │         
-                ▼            ↙                 │         
-                |          ↙                   │         
-                |        ↙                     │         
-                | LAN Cable                    │         
-                ▼                              │         
+          | LAN: 192.168.1.1/24 |                       
+          ----------------------                        
+                ▼                                       
+          [LAN] │                                       
+                └───────→ [SCRIPT AUTO LOGIN Captive Portal]         
+                                   ▼         
+                            [SUKSES LOGIN]→[GAGAL]         
+                                   ▼           ▼
+                                   │           │
+                                   │           │
+                    [BYPASS Captive Portal]    │
+                                   │           │
+           [LAN]┌──────────────────┘           │
+                ▼                              │
            [Tenda AC1200]                      │         
            Mode: AP                            │         
                 │                              │         
