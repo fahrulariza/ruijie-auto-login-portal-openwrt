@@ -18,9 +18,6 @@
 <br>
 <br>
 
-`
-Ruijie [Mode captive portal] ==Jarak 100M=> Tenda O3v2[eth2] > OpenWRT > AP Tenda AC1200
-`
 ## FITUR SCRIPT INTELEGEN:
 ### ✅ Hanya login jika diperlukan:
 
@@ -44,3 +41,29 @@ Ruijie [Mode captive portal] ==Jarak 100M=> Tenda O3v2[eth2] > OpenWRT > AP Tend
 1. Tidak mengubah konfigurasi jaringan.
 2. Restore state jika gagal.
 3. Handle error dengan baik
+
+
+### Topologi Jaringan
+`
+[INTERNET]
+    |
+[Ruijie Access Point]
+    | Mode: Captive Portal/Hotspot
+    | Jarak: 100M
+    | WiFi: SSID_Hotspot_Ruijie
+    |
+[Tenda O3V2]
+    | Mode: Client (WiFi to Ethernet Bridge)
+    | Antena: Menangkap sinyal dari Ruijie
+    | Port: eth2 → LAN cable
+    |
+[OpenWRT Router]
+    | Fungsi: Router utama & DHCP Server
+    | Port WAN: Terhubung ke Tenda O3V2
+    | Firewall & NAT: Diatur di sini
+    |
+[Tenda AC1200]
+    | Mode: Access Point (AP)
+    | Terhubung via LAN ke OpenWRT
+    | WiFi: SSID_Lokal (disediakan ke user)
+`
