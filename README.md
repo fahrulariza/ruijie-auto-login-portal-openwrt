@@ -1,1 +1,1 @@
-# Ruijie Auto Login Portal Script OpenWRT
+# Ruijie Auto Login Captive Portal Script OpenWRT
