@@ -18,6 +18,9 @@
 <br>
 <br>
 
+`
+Ruijie [Mode captive portal] ==Jarak 100M=> Tenda O3v2[eth2] > OpenWRT > AP Tenda AC1200
+`
 ## FITUR SCRIPT INTELEGEN:
 ### ✅ Hanya login jika diperlukan:
 
