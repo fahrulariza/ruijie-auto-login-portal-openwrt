@@ -44,8 +44,7 @@
 
 
 ### Topologi Jaringan
-
-`
+```
 [INTERNET]
     |
 [Ruijie Access Point]
@@ -67,4 +66,4 @@
     | Mode: Access Point (AP)
     | Terhubung via LAN ke OpenWRT
     | WiFi: SSID_Lokal (disediakan ke user)
-`
+```
