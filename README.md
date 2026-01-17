@@ -1,1 +1,1 @@
-# ruijie-auto-login-portal-openwrt
+# Ruijie Auto Login Portal Script OpenWRT
