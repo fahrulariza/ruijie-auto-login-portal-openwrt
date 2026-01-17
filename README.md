@@ -22,12 +22,12 @@
 
 ### ✅ Multi-credentials:
 
-1. Coba login dengan Umum:PKMUMUM1 dulu
-2. Jika gagal, coba dengan Admin:PKMADMIN1
+1. Melakukan percobaan login user pertama
+2. Jika gagal, coba dengan user ke dua
 
 ### ✅ Smart monitoring:
 
-1. Monitor koneksi internet setiap 5 menit.
+1. bisa dengan Crontab Monitor koneksi internet setiap 5 menit.
 2. Otomatis login jika internet mati dan ada captive portal.
 3. Logging detail untuk debugging
 
