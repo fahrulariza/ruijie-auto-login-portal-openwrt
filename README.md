@@ -60,10 +60,63 @@
 [OpenWRT Router]
     | Fungsi: Router utama & DHCP Server
     | Port WAN: Terhubung ke Tenda O3V2
-    | Firewall & NAT: Diatur di sini
+    | Firewall & NAT: SCRIPT Diatur di sini
     |
 [Tenda AC1200]
     | Mode: Access Point (AP)
     | Terhubung via LAN ke OpenWRT
     | WiFi: SSID_Lokal (disediakan ke user)
+```
+
+### Aliran Data
+```
+Internet
+    ↓
+Ruijie Hotspot (Captive Portal)
+    ↓ [Wireless - 100m]
+Tenda O3V2 (Client Mode - menerima WiFi)
+    ↓ [Ethernet - eth2]
+OpenWRT (Routing, NAT, Management)
+    ↓ [Ethernet - LAN]
+Tenda AC1200 (AP Mode)
+    ↓ [Wireless]
+User Devices (Laptop, HP, dll)
+```
+
+### Diagram Proses Script
+```
+                              [INTERNET]
+                                  |
+                ┌─────────────────┼─────────────────────┐
+                │                 │                     │
+           [Ruijie AP]       [Hotspot]           [Captive Portal]
+           (SSID_Hotspot)       │                       │
+                │              100M                     │
+                │           [Wireless]                  │
+                ▼                                       │
+           [Tenda O3V2]                                 │
+           Mode: Client                                 │
+                │                                       │
+                │ eth2 (LAN Cable)                      │
+                ▼                                       │
+          ----------------------                        │
+          | [OpenWRT Router]    |◄─[Captive Portal]◄────┘
+          | LAN: 192.168.1.1/24 |      │       │         
+          ----------------------       │       │         
+                ▼          ↘           │       │         
+                │            ↘         ▼       │         
+                |───────→ [SCRIPT AUTO LOGIN]  │         
+                ▼            ↙                 │         
+                |          ↙                   │         
+                |        ↙                     │         
+                | LAN Cable                    │         
+                ▼                              │         
+           [Tenda AC1200]                      │         
+           Mode: AP                            │         
+                │                              │         
+          ┌─────┼─────┐                        │         
+          │     │     │                        │         
+        [User1][User2][User3]                  │         
+          │     │     │                        │         
+        [Auth via] [Captive Portal]◄───────────┘
 ```
