@@ -1,5 +1,17 @@
-# Ruijie Auto Login Captive Portal Script OpenWRT
+<div align="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Openwrt_Logo.svg" alt="OpenWrt - Bluetooth Audio di OpenWrt" width="200"/>
+<br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Armbianlogo.png" alt="OpenWrt - Bluetooth Audio di Armbian" width="200"/>
 
+![License](https://img.shields.io/github/license/fahrulariza/OpenWRT-Pulse-Audio)
+[![GitHub All Releases](https://img.shields.io/github/downloads/fahrulariza/OpenWRT-Pulse-Audio/total)](https://github.com/fahrulariza/OpenWRT-Pulse-Audio/releases)
+![Total Commits](https://img.shields.io/github/commit-activity/t/fahrulariza/OpenWRT-Pulse-Audio)
+![Top Language](https://img.shields.io/github/languages/top/fahrulariza/OpenWRT-Pulse-Audio)
+[![Open Issues](https://img.shields.io/github/issues/fahrulariza/OpenWRT-Pulse-Audio)](https://github.com/fahrulariza/OpenWRT-Pulse-Audio/issues)
+
+<h1># Ruijie Auto Login Captive Portal Script OpenWRT</h1>
+<p>Kelola router berbasis OS OpenWrt dan Armbian Linux dengan mudah dan kreatif!</p>
+</div>
 
 ## FITUR SCRIPT INTELEGEN:
 ### ✅ Hanya login jika diperlukan:
