@@ -21,7 +21,7 @@
 ## FITUR SCRIPT INTELEGEN:
 ### ✅ Hanya login jika diperlukan:
 
-1. Cek captive portal - hanya login jika ada portal Ruijie
+1. Cek captive portal - hanya login jika ada portal Ruijie di `http://www.msftconnecttest.com/redirect`
 2. CukuP 1 User saja yang login jika ada Captive Portal Ruijie. jika berhasil user lain tidak perlu login di Captive Portal
 3. Tidak mengubah MAC address - karena terbukti merusak koneksi
 
