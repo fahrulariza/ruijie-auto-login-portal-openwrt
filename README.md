@@ -148,11 +148,14 @@ dos2unix ruijie_auto_login_portal.py monitor_ruijie.py
 # Install requests jika belum
 pip3 install requests
 ```
-## Konfigurasi Manual di dalam Script `ruijie_auto_login_portal.py`
 
 <br>
 
+## Konfigurasi Manual di dalam Script `ruijie_auto_login_portal.py`
 ubah dan tambahkan account dan password untuk login.
+`INTERFACE` = Lokasi interface target
+`CREDENTIALS` = user dan passowrd login
+`def setup_logging()` = lokasi penyimpanan file log
 ```
 # ==================== KONFIGURASI ====================
 INTERFACE = "eth1"
