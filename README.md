@@ -148,6 +148,30 @@ dos2unix ruijie_auto_login_portal.py monitor_ruijie.py
 # Install requests jika belum
 pip3 install requests
 ```
+## Konfigurasi Manual di dalam Script `ruijie_auto_login_portal.py`
+<br>
+ubah dan tambahkan account dan password untuk login.
+```
+# ==================== KONFIGURASI ====================
+INTERFACE = "eth1"
+CREDENTIALS = [
+    {"account": "Admin", "password": "Admin123"},  # Try admin first
+    {"account": "Umum", "password": "Umum123"}  # Fallback to Umum
+]
+
+# ==================== SETUP LOGGING ====================
+def setup_logging():
+    log_dir = "/www/assisten/auto-Ruijie"
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+    
+    logger = logging.getLogger('RuijieSmartLogin')
+    logger.setLevel(logging.INFO)
+    
+    # File handler
+    fh = logging.FileHandler(f'{log_dir}/ruijie_smart.log')
+    fh.setLevel(logging.INFO)
+```
 
 ## Test script:
 ```
