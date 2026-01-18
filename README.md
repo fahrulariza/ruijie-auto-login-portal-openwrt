@@ -19,11 +19,12 @@
 <br>
 
 ## FITUR SCRIPT:
+
 ### ✅ Hanya login jika diperlukan:
 
-1. Cek captive portal - hanya login jika ada portal Ruijie di `http://www.msftconnecttest.com/redirect`
+1. `Deteksi kondisi`: Script mendeteksi internet mati + captive portal aktif di `http://www.msftconnecttest.com/redirect`
 2. CukuP 1 User saja yang login jika ada Captive Portal Ruijie. jika ada berhasil maka user lain tidak perlu login di Captive Portal
-3. Tidak mengubah MAC address OpenWRT
+3. 
 
 ### ✅ Multi-credentials:
 
@@ -41,9 +42,9 @@
 1. Tidak mengubah konfigurasi jaringan.
 2. Restore state jika gagal.
 3. Handle error dengan baik
+4. Tidak mengubah MAC address OpenWRT
 
-
-### Topologi Jaringan
+## Topologi Jaringan
 ```
 [INTERNET]
     |
@@ -69,6 +70,14 @@
 ```
 
 ### Diagram Proses Script
+
+###✅ Proses Script:
+
+1. `Deteksi kondisi`: Script mendeteksi internet mati + captive portal aktif
+2. `Login otomatis`: Berhasil login dengan akun yang sudah dimasukan ke dalam script
+3. `Gateway auth`: Token berhasil diotorisasi ke gateway lokal
+4. `Internet terbuka`: Setelah login, internet langsung bekerja
+5. `Smart check`: Saat dijalankan kedua kali, langsung detect internet sudah OK
 ```
             [INTERNET]
                 |
