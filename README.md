@@ -405,3 +405,47 @@ root@Open-wrt:/# /www/assisten/auto-Ruijie/auto_ruijie_smart.py
 2026-01-17 13:42:17 - INFO - 
 ✅ Script completed successfully
 ```
+
+<br>
+
+## Testing `ruijie_auto_login_portal.py` saat berhasil login sebelumnya
+```
+root@riza-wrt:/# /www/assisten/auto-Ruijie/auto_ruijie_smart.py
+2026-01-17 13:43:04 - INFO - ============================================================
+2026-01-17 13:43:04 - INFO - SMART RUIJIE AUTO-LOGIN
+2026-01-17 13:43:04 - INFO - Time: 2026-01-17 13:43:04
+2026-01-17 13:43:04 - INFO - ============================================================
+2026-01-17 13:43:04 - INFO - 
+[1/5] Checking current internet status...
+2026-01-17 13:43:04 - INFO - Testing internet connectivity...
+2026-01-17 13:43:05 - INFO - ✅ Internet ping test: PASS
+2026-01-17 13:43:07 - INFO - ✅ HTTP test: PASS
+2026-01-17 13:43:07 - INFO - ✅ No captive portal (Microsoft redirect)
+2026-01-17 13:43:07 - INFO - Internet tests: 3/3 passed
+2026-01-17 13:43:07 - INFO - 🎉 Internet already working, no action needed!
+2026-01-17 13:43:07 - INFO - 
+✅ Script completed successfully
+root@riza-wrt:/# 
+```
+
+<br>
+
+## 📊 Data Penting dari Log:
+```
+Session ID: b2f1d91faa1e4525a8d1bed6e7e3d3e4
+Akun yang berhasil: Umum
+MAC yang digunakan: 05:f0:f5:08:be:31 (MAC Tenda O3V2)
+Gateway: 192.168.110.1:2060
+```
+```
+2026-01-17 13:42:13 - INFO - ✅ Login response: {
+  "success": true,
+  "timestamp": 1768632133215,
+  "result": {
+    "authResult": "1",
+    "logonUrl": "http://192.168.110.1:2060/wifidog/auth?token=b2f1d91faa1e4525a8d1bed6e7e3d3e4&phoneNumber=Umum",
+    "modifyPwd": null
+  },
+  "message": null
+}
+```
