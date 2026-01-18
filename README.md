@@ -23,8 +23,8 @@
 ### ✅ Hanya login jika diperlukan:
 
 1. `Deteksi kondisi`: Script mendeteksi internet mati + captive portal aktif di `http://www.msftconnecttest.com/redirect`
-2. CukuP 1 User saja yang login jika ada Captive Portal Ruijie. jika ada berhasil maka user lain tidak perlu login di Captive Portal
-3. 
+2. Cukup 1 User saja yang login jika ada Captive Portal Ruijie. jika ada berhasil maka user lain tidak perlu login di Captive Portal
+3. BYPASS Captive Portal jika sudah ada user yang berhasil login di Captive Portal
 
 ### ✅ Multi-credentials:
 
