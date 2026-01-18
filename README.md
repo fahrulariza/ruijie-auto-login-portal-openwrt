@@ -71,8 +71,6 @@
 
 ### Diagram Proses Script
 
-###✅ Proses Script:
-
 1. `Deteksi kondisi`: Script mendeteksi internet mati + captive portal aktif
 2. `Login otomatis`: Berhasil login dengan akun yang sudah dimasukan ke dalam script
 3. `Gateway auth`: Token berhasil diotorisasi ke gateway lokal
