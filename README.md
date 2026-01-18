@@ -121,7 +121,7 @@
 ```
 
 
-### Install script:
+## Install script:
 ```
 mkdir /www/auto-Ruijie
 cd /www/auto-Ruijie
@@ -138,11 +138,172 @@ dos2unix ruijie_auto_login_portal.py monitor_ruijie.py
 pip3 install requests
 ```
 
-### Test script:
+## Test script:
 ```
 # Test smart login (hanya login jika diperlukan)
 python3 ruijie_auto_login_portal.py
 
 # Test monitor (check setiap 60 detik)
 python3 monitor_ruijie.py
+```
+
+## SCRIPT MONITORING: `monitor_ruijie.py`
+```
+#!/usr/bin/env python3
+"""
+Monitoring script untuk Ruijie connection
+Jalankan sebagai service/daemon
+"""
+
+import time
+import subprocess
+import logging
+import sys
+import os
+from datetime import datetime
+
+# Setup logging
+log_dir = "/www/auto-Ruijie"
+if not os.path.exists(log_dir):
+    os.makedirs(log_dir)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(f'{log_dir}/monitor.log'),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+logger = logging.getLogger(__name__)
+
+def check_internet_quick():
+    """Quick internet check"""
+    try:
+        result = subprocess.run(
+            ["ping", "-c", "1", "-W", "2", "8.8.8.8"],
+            capture_output=True,
+            text=True
+        )
+        return result.returncode == 0
+    except:
+        return False
+
+def check_ruijie_portal():
+    """Check if Ruijie portal is active"""
+    try:
+        import requests
+        response = requests.get(
+            "http://www.msftconnecttest.com/redirect",
+            timeout=5,
+            allow_redirects=False
+        )
+        
+        if response.status_code == 302:
+            location = response.headers.get('Location', '')
+            return 'portal-as.ruijienetworks.com' in location
+        
+        return False
+    except:
+        return False
+
+def run_login_script():
+    """Run the login script"""
+    script_path = "/www/auto-Ruijie/ruijie_auto_login_portal.py"
+    
+    if os.path.exists(script_path):
+        logger.info("Running login script...")
+        result = subprocess.run(
+            [sys.executable, script_path],
+            capture_output=True,
+            text=True
+        )
+        
+        if result.returncode == 0:
+            logger.info("Login script successful")
+            return True
+        else:
+            logger.error(f"Login script failed: {result.stderr}")
+            return False
+    else:
+        logger.error(f"Login script not found: {script_path}")
+        return False
+
+def monitor_loop(check_interval=300):  # 5 minutes
+    """Main monitoring loop"""
+    logger.info("=" * 60)
+    logger.info("Ruijie Connection Monitor Started")
+    logger.info(f"Check interval: {check_interval} seconds")
+    logger.info("=" * 60)
+    
+    last_status = None
+    
+    while True:
+        try:
+            current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            logger.info(f"\n[{current_time}] Checking connection...")
+            
+            # Check internet
+            internet_ok = check_internet_quick()
+            
+            if internet_ok:
+                logger.info("✅ Internet is working")
+                
+                if last_status != "online":
+                    logger.info("Status changed: OFFLINE → ONLINE")
+                    last_status = "online"
+            else:
+                logger.warning("❌ Internet not working")
+                
+                # Check if Ruijie portal is active
+                portal_active = check_ruijie_portal()
+                
+                if portal_active:
+                    logger.info("⚠ Ruijie captive portal detected, attempting login...")
+                    
+                    # Run login script
+                    login_success = run_login_script()
+                    
+                    if login_success:
+                        logger.info("✅ Login attempted")
+                    else:
+                        logger.error("❌ Login failed")
+                else:
+                    logger.info("⚠ No captive portal, might be network issue")
+                
+                if last_status != "offline":
+                    logger.info("Status changed: ONLINE → OFFLINE")
+                    last_status = "offline"
+            
+            # Wait for next check
+            logger.info(f"Next check in {check_interval} seconds...")
+            time.sleep(check_interval)
+            
+        except KeyboardInterrupt:
+            logger.info("\n⚠ Monitor stopped by user")
+            break
+        except Exception as e:
+            logger.error(f"Monitor error: {e}")
+            time.sleep(60)  # Wait 1 minute on error
+
+if __name__ == "__main__":
+    # Run as daemon or interactive
+    if len(sys.argv) > 1 and sys.argv[1] == "daemon":
+        # Run as daemon
+        import daemon
+        from daemon import pidfile
+        
+        context = daemon.DaemonContext(
+            working_directory='/www/auto-Ruijie',
+            umask=0o002,
+            pidfile=pidfile.PIDLockFile('/var/run/ruijie_monitor.pid'),
+            stdout=open('/www/auto-Ruijie/monitor_out.log', 'w+'),
+            stderr=open('/www/auto-Ruijie/monitor_err.log', 'w+')
+        )
+        
+        with context:
+            monitor_loop()
+    else:
+        # Run interactive
+        monitor_loop(check_interval=60)  # 1 minute for testing
 ```
