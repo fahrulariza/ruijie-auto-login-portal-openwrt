@@ -307,3 +307,28 @@ if __name__ == "__main__":
         # Run interactive
         monitor_loop(check_interval=60)  # 1 minute for testing
 ```
+
+
+## Jalankan sebagai service: `monitor_ruijie.py`
+```
+# Buat init script
+cat > /etc/init.d/ruijie_monitor << 'EOF'
+#!/bin/sh /etc/rc.common
+START=99
+STOP=10
+
+start() {
+    /usr/bin/python3 /www/auto-Ruijie/monitor_ruijie.py daemon &
+}
+
+stop() {
+    killall -9 python3
+}
+EOF
+
+chmod +x /etc/init.d/ruijie_monitor
+
+# Enable pada boot
+/etc/init.d/ruijie_monitor enable
+/etc/init.d/ruijie_monitor start
+```
