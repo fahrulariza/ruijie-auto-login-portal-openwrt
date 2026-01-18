@@ -75,7 +75,8 @@
                 │
                 ▼                                      
            [Ruijie AP] ─────────┐          
-           (SSID_Hotspot)       │                       
+           (SSID_Hotspot)       │
+           [DHCP:192.168.100.1/24]                  
                 │          [Jarak 100M]                     
                 │           [Wireless]                  
          [Captive Portal]◄──────┘
@@ -100,11 +101,12 @@
                                    │                   │
                                    │                   │
 ┌──────────────────────→[BYPASS Captive Portal]        │
-│                                   │                  │
-│           [LAN]┌──────────────────┘                  │
+│                                  │                   │
+│           [LAN]┌─────────────────┘                   │
 ↑                ▼                                     │
 │           [Tenda AC1200]                             │         
-│           Mode: AP                                   │         
+│           Mode: AP                                   │
+│           DHCP:192.168.1.0/24                        │
 ↑                │                                     │         
 │          ┌─────┼─────┐                               │         
 │          │     │     │                               │         
