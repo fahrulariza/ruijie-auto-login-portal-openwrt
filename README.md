@@ -18,17 +18,17 @@
 <br>
 <br>
 
-## FITUR SCRIPT INTELEGEN:
+## FITUR SCRIPT:
 ### ✅ Hanya login jika diperlukan:
 
 1. Cek captive portal - hanya login jika ada portal Ruijie di `http://www.msftconnecttest.com/redirect`
-2. CukuP 1 User saja yang login jika ada Captive Portal Ruijie. jika berhasil user lain tidak perlu login di Captive Portal
-3. Tidak mengubah MAC address - karena terbukti merusak koneksi
+2. CukuP 1 User saja yang login jika ada Captive Portal Ruijie. jika ada berhasil maka user lain tidak perlu login di Captive Portal
+3. Tidak mengubah MAC address OpenWRT
 
 ### ✅ Multi-credentials:
 
 1. Melakukan percobaan login user pertama
-2. Jika gagal, coba dengan user ke dua
+2. Jika gagal, coba dengan user ke dua dan seterusnya
 
 ### ✅ Smart monitoring:
 
@@ -119,3 +119,5 @@
 │                ▼
 └────────◄─[SUKSES LOGIN]
 ```
+
+
