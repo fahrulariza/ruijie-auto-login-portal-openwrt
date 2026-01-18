@@ -313,7 +313,7 @@ if __name__ == "__main__":
 ```
 
 
-## Jalankan sebagai service: `monitor_ruijie.py`
+## Jalankan sebagai service: untuk menjalankan `monitor_ruijie.py`
 ```
 # Buat init script
 cat > /etc/init.d/ruijie_monitor << 'EOF'
