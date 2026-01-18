@@ -68,38 +68,26 @@
     | WiFi: SSID_Lokal (disediakan ke user)
 ```
 
-### Aliran Data
-```
-Internet
-    ↓
-Ruijie Hotspot (Captive Portal)
-    ↓ [Wireless - 100m]
-Tenda O3V2 (Client Mode - menerima WiFi)
-    ↓ [Ethernet - eth2]
-OpenWRT (Routing, NAT, Management)
-    ↓ [Ethernet - LAN]
-Tenda AC1200 (AP Mode)
-    ↓ [Wireless]
-User Devices (Laptop, HP, dll)
-```
-
 ### Diagram Proses Script
 ```
-                              [INTERNET]
-                                  |
-                ┌─────────────────┼─────────────────────┐
-                │                 │                     │
-           [Ruijie AP]       [Hotspot]           [Captive Portal]
-           (SSID_Hotspot)       │                       │
-                │              100M                     │
-                │           [Wireless]                  │
-                ▼               │                       │
-           [Tenda O3V2]◄────────┘                       │
-           Mode: Client                                 │
+            [INTERNET]
+                |
+                │
+                ▼                                      
+           [Ruijie AP] ─────────┐          
+           (SSID_Hotspot)       │                       
+                │          [Jarak 100M]                     
+                │           [Wireless]                  
+         [Captive Portal]◄──────┘
+                │
+                │
+                ▼               
+           [Tenda O3V2]─→────────[Captive Portal]───────┐
+           Mode: Client                                 ▼
                 │                                       │
                 │ eth2 (LAN Cable)                      │
                 ▼ DHCP:192.168.100.0/24                 │
-          ----------------------                        │
+          ----------------------                        ▼
           | [OpenWRT Router]    |◄─[Captive Portal]◄────┘
           | LAN: 192.168.1.1/24 |                       
           ----------------------                        
@@ -107,20 +95,27 @@ User Devices (Laptop, HP, dll)
           [LAN] │                                       
                 └───────→ [SCRIPT AUTO LOGIN Captive Portal]         
                                    ▼         
-                            [SUKSES LOGIN]→[GAGAL]         
-                                   ▼           ▼
-                                   │           │
-                                   │           │
-                    [BYPASS Captive Portal]    │
-                                   │           │
-           [LAN]┌──────────────────┘           │
-                ▼                              │
-           [Tenda AC1200]                      │         
-           Mode: AP                            │         
-                │                              │         
-          ┌─────┼─────┐                        │         
-          │     │     │                        │         
-        [User1][User2][User3]                  │         
-          │     │     │                        │         
-        [Auth via] [Captive Portal]◄───────────┘
+                            [SUKSES LOGIN]─────────→[GAGAL]         
+                                   ▼                   ▼
+                                   │                   │
+                                   │                   │
+┌──────────────────────→[BYPASS Captive Portal]        │
+│                                   │                  │
+│           [LAN]┌──────────────────┘                  │
+↑                ▼                                     │
+│           [Tenda AC1200]                             │         
+│           Mode: AP                                   │         
+↑                │                                     │         
+│          ┌─────┼─────┐                               │         
+│          │     │     │                               │         
+│        [User1][User2][User3]                         │         
+↑          │     │     │                               │         
+│      [Auth via Captive Portal]◄──────────────────────┘
+│          │     │     │
+↑          └────→┼◄────┘
+│                │
+│                ▼
+└────────◄─[SUKSES LOGIN]
+
+
 ```
