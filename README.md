@@ -149,7 +149,9 @@ dos2unix ruijie_auto_login_portal.py monitor_ruijie.py
 pip3 install requests
 ```
 ## Konfigurasi Manual di dalam Script `ruijie_auto_login_portal.py`
+
 <br>
+
 ubah dan tambahkan account dan password untuk login.
 ```
 # ==================== KONFIGURASI ====================
