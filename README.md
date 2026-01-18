@@ -127,11 +127,12 @@ mkdir /www/auto-Ruijie
 cd /www/auto-Ruijie
 
 # Simpan script
-echo '[konten auto_ruijie_smart.py di atas]' > auto_ruijie_smart.py
+echo '[konten ruijie_auto_login_portal.py di atas]' > ruijie_auto_login_portal.py
 echo '[konten monitor_ruijie.py di atas]' > monitor_ruijie.py <<<<<< OPSIONAL, menggunakan Crontab bisa saja
 
 # Beri permission
-chmod +x auto_ruijie_smart.py monitor_ruijie.py
+chmod +x ruijie_auto_login_portal.py monitor_ruijie.py
+dos2unix ruijie_auto_login_portal.py monitor_ruijie.py
 
 # Install requests jika belum
 pip3 install requests
@@ -140,7 +141,7 @@ pip3 install requests
 ### Test script:
 ```
 # Test smart login (hanya login jika diperlukan)
-python3 auto_ruijie_smart.py
+python3 ruijie_auto_login_portal.py
 
 # Test monitor (check setiap 60 detik)
 python3 monitor_ruijie.py
