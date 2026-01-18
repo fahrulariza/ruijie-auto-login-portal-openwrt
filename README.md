@@ -343,3 +343,65 @@ chmod +x /etc/init.d/ruijie_monitor
 /etc/init.d/ruijie_monitor enable
 /etc/init.d/ruijie_monitor start
 ```
+
+<br>
+
+## Testing `ruijie_auto_login_portal.py` saat captive portal aktif dan otomatis berhasil login
+```
+root@Open-wrt:/# /www/assisten/auto-Ruijie/auto_ruijie_smart.py
+2026-01-17 13:42:04 - INFO - ============================================================
+2026-01-17 13:42:04 - INFO - SMART RUIJIE AUTO-LOGIN
+2026-01-17 13:42:04 - INFO - Time: 2026-01-17 13:42:04
+2026-01-17 13:42:04 - INFO - ============================================================
+2026-01-17 13:42:04 - INFO - 
+[1/5] Checking current internet status...
+2026-01-17 13:42:04 - INFO - Testing internet connectivity...
+2026-01-17 13:42:07 - INFO - ❌ Internet ping test: FAIL
+2026-01-17 13:42:12 - INFO - ❌ HTTP test: FAIL
+2026-01-17 13:42:12 - INFO - ⚠ Captive portal detected
+2026-01-17 13:42:12 - INFO - 
+[2/5] Checking for captive portal...
+2026-01-17 13:42:12 - INFO - Checking for Ruijie captive portal...
+2026-01-17 13:42:12 - INFO - Redirect location: https://portal-as.ruijienetworks.com/auth/wifidogAuth/login/?gw_id=984a6ba5d761&gw_sn=H1TB187004677&gw_address=192.168.110.1&gw_port=2060&ip=192.168.110.88&mac=05:f0:f5:08:be:31&slot_num=13&nasip=192.168.1.31&ssid=VLAN233&ustate=0&mac_req=1&url=http%3A%2F%2Fwww%2Emsftconnecttest%2Ecom%2Fredirect&chap_id=%5C107&chap_challenge=%5C146%5C307%5C060%5C353%5C146%5C226%5C344%5C374%5C011%5C212%5C011%5C362%5C171%5C177%5C066%5C334
+2026-01-17 13:42:12 - INFO - ✅ Ruijie captive portal detected!
+2026-01-17 13:42:12 - INFO - Captive portal parameters captured
+2026-01-17 13:42:12 - INFO - Gateway: 192.168.110.1
+2026-01-17 13:42:12 - INFO - MAC: 05:f0:f5:08:be:31
+2026-01-17 13:42:12 - INFO - 
+[3/5] Getting session ID...
+2026-01-17 13:42:12 - INFO - Accessing login page...
+2026-01-17 13:42:13 - INFO - Getting session ID...
+2026-01-17 13:42:13 - INFO - ✅ Session ID: b2f1d91faa1e4525a8d1bed6e7e3d3e4
+2026-01-17 13:42:13 - INFO - 
+[4/5] Attempting login...
+2026-01-17 13:42:13 - INFO - Trying credentials: Umum
+2026-01-17 13:42:13 - INFO - Trying login with: Umum
+2026-01-17 13:42:13 - INFO - ✅ Login response: {
+  "success": true,
+  "timestamp": 1768632133215,
+  "result": {
+    "authResult": "1",
+    "logonUrl": "http://192.168.110.1:2060/wifidog/auth?token=b2f1d91faa1e4525a8d1bed6e7e3d3e4&phoneNumber=Umum",
+    "modifyPwd": null
+  },
+  "message": null
+}
+2026-01-17 13:42:13 - INFO - 🎉 Login successful as: Umum
+2026-01-17 13:42:13 - INFO - 
+[5/5] Authorizing gateway...
+2026-01-17 13:42:13 - INFO - Authorizing gateway: http://192.168.110.1:2060/wifidog/auth
+2026-01-17 13:42:13 - INFO - Gateway auth status: 302
+2026-01-17 13:42:13 - INFO - Redirected to: https://portal-as.ruijienetworks.com/auth/wifidogAuth/portal/?gw_id=984a6ba5d761&gw_sn=H1TB187004677&ip=192.168.110.88&mac=05:f0:f5:08:be:31
+2026-01-17 13:42:13 - INFO - ✅ Gateway authorized
+2026-01-17 13:42:13 - INFO - 
+[6/5] Verifying internet access...
+2026-01-17 13:42:16 - INFO - Waiting for internet (max 15s)...
+2026-01-17 13:42:16 - INFO - Testing internet connectivity...
+2026-01-17 13:42:17 - INFO - ✅ Internet ping test: PASS
+2026-01-17 13:42:17 - INFO - ✅ Internet is now working!
+2026-01-17 13:42:17 - INFO - ============================================================
+2026-01-17 13:42:17 - INFO - 🎉 SUCCESS! Internet access granted
+2026-01-17 13:42:17 - INFO - ============================================================
+2026-01-17 13:42:17 - INFO - 
+✅ Script completed successfully
+```
