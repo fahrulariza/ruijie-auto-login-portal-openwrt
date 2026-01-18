@@ -348,7 +348,9 @@ chmod +x /etc/init.d/ruijie_monitor
 
 ## Testing `ruijie_auto_login_portal.py` saat captive portal aktif dan otomatis berhasil login
 ```
-root@Open-wrt:/# /www/assisten/auto-Ruijie/auto_ruijie_smart.py
+root@Open-wrt:/# dos2unix /www/auto-Ruijie/ruijie_auto_login_portal.py
+root@Open-wrt:/# chmod +x /www/auto-Ruijie/ruijie_auto_login_portal.py
+root@Open-wrt:/# /www/auto-Ruijie/ruijie_auto_login_portal.py
 2026-01-17 13:42:04 - INFO - ============================================================
 2026-01-17 13:42:04 - INFO - SMART RUIJIE AUTO-LOGIN
 2026-01-17 13:42:04 - INFO - Time: 2026-01-17 13:42:04
@@ -408,9 +410,9 @@ root@Open-wrt:/# /www/assisten/auto-Ruijie/auto_ruijie_smart.py
 
 <br>
 
-## Testing `ruijie_auto_login_portal.py` saat berhasil login sebelumnya
+## Testing `ruijie_auto_login_portal.py` saat berhasil login sebelumnya dan terbaca sudah Login
 ```
-root@riza-wrt:/# /www/assisten/auto-Ruijie/auto_ruijie_smart.py
+root@riza-wrt:/# /www/assisten/auto-Ruijie/ruijie_auto_login_portal.py
 2026-01-17 13:43:04 - INFO - ============================================================
 2026-01-17 13:43:04 - INFO - SMART RUIJIE AUTO-LOGIN
 2026-01-17 13:43:04 - INFO - Time: 2026-01-17 13:43:04
