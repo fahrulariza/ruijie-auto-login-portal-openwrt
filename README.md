@@ -148,6 +148,10 @@ python3 monitor_ruijie.py
 ```
 
 ## SCRIPT MONITORING: `monitor_ruijie.py`
+
+Opsional, tidak perlu jika sudah menggunakan CRONTAB saja.
+<br>
+
 ```
 #!/usr/bin/env python3
 """
