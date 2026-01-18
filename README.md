@@ -406,13 +406,14 @@ root@Open-wrt:/# /www/auto-Ruijie/ruijie_auto_login_portal.py
 2026-01-17 13:42:17 - INFO - ============================================================
 2026-01-17 13:42:17 - INFO - 
 ✅ Script completed successfully
+root@Open-wrt:/# 
 ```
 
 <br>
 
 ## Testing `ruijie_auto_login_portal.py` saat berhasil login sebelumnya dan terbaca sudah Login
 ```
-root@riza-wrt:/# /www/assisten/auto-Ruijie/ruijie_auto_login_portal.py
+root@Open-wrt:/# /www/assisten/auto-Ruijie/ruijie_auto_login_portal.py
 2026-01-17 13:43:04 - INFO - ============================================================
 2026-01-17 13:43:04 - INFO - SMART RUIJIE AUTO-LOGIN
 2026-01-17 13:43:04 - INFO - Time: 2026-01-17 13:43:04
@@ -427,7 +428,7 @@ root@riza-wrt:/# /www/assisten/auto-Ruijie/ruijie_auto_login_portal.py
 2026-01-17 13:43:07 - INFO - 🎉 Internet already working, no action needed!
 2026-01-17 13:43:07 - INFO - 
 ✅ Script completed successfully
-root@riza-wrt:/# 
+root@Open-wrt:/# 
 ```
 
 <br>
