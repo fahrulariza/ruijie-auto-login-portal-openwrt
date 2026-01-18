@@ -103,23 +103,23 @@
           [LAN] │                                       
                 └───────→ [SCRIPT AUTO LOGIN Captive Portal]         
                                    ▼         
-                            [SUKSES LOGIN]─────────→[GAGAL]         
-                                   ▼                   ▼
-                                   │                   │
-                                   │                   │
-┌──────────────────────→[BYPASS Captive Portal]        │
-│                                  │                   │
-│           [LAN]┌─────────────────┘                   │
-↑                ▼                                     │
-│           [Tenda AC1200]                             │         
-│           Mode: AP                                   │
-│           DHCP:192.168.1.0/24                        │
-↑                │                                     │         
-│          ┌─────┼─────┐                               │         
-│          │     │     │                               │         
-│        [User1][User2][User3]                         │         
-↑          │     │     │                               │         
-│      [Auth via Captive Portal]◄──────────────────────┘
+┌──────────────────────────→[SUKSES LOGIN]─────────────────→[GAGAL]         
+│                                  ▼                           ▼
+│                                  │                           │
+│                                  │                           │
+│                [BYPASS Captive Portal For All Client]        │
+│                                  │                           │
+│           [LAN]┌─────────────────┘                           │
+↑                ▼                                             │
+│           [Tenda AC1200]                                     │         
+│           Mode: AP                                           │
+│           DHCP:192.168.1.0/24                                │
+↑                │                                             │         
+│          ┌─────┼─────┐                                       │         
+│          │     │     │                                       │         
+│        [User1][User2][User3]                                 │         
+↑          │     │     │                                       │         
+│      [Auth via Captive Portal]◄──────────────────────────────┘
 │          │     │     │
 ↑          └────→┼◄────┘
 │                │
